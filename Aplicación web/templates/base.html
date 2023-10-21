@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="generator" content="Aspose.Words for .NET 23.10.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> <!-- Vincula el archivo CSS externo -->
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <div class="navbar-title">
+            <p>Accidentalidad en Medellín</p>
+        </div>
+        <div class="navbar-links">
+            <a href="{{ url_for('inicio') }}">Inicio</a>
+            <a href="{{ url_for('historico') }}">Histórico</a>
+            <a href="{{ url_for('prediccion') }}">Predicción</a>
+            <a href="{{ url_for('agrupamiento') }}">Agrupamiento</a>
+            <a href="{{ url_for('enlaces') }}">Enlaces</a>
+        </div>
+    </div>
+
+    <!-- Contenido de la página -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Créditos y Copyright -->
+    <div class="copyright">
+        <p>© 2023 Tu Nombre. Todos los derechos reservados.</p>
+    </div>
+</body>
+
+</html>
