@@ -9,38 +9,58 @@
     <form action="#" method="get">
         <div class="filter-item">
             <label for="fecha-inicio">Fecha de Inicio:</label>
-            <input type="date" id="fecha-inicio" name="fecha-inicio">
+            <input type="date" id="fecha-inicio" name="fecha-inicio" value="{{ selected_fecha_inicio }}" min="2014-01-01" max="2020-12-31">
         </div>
         <div class="filter-item">
             <label for="fecha-fin">Fecha de Fin:</label>
-            <input type="date" id="fecha-fin" name="fecha-fin">
+            <input type="date" id="fecha-fin" name="fecha-fin" value="{{ selected_fecha_fin }}" min="2014-01-01" max="2020-12-31">
         </div>
         <div class="filter-item">
             <label for="barrio">Barrio:</label>
             <select id="barrio" name="barrio">
                 <option value="todos">Todos</option>
-                <option value="barrio1">Barrio 1</option>
-                <option value="barrio2">Barrio 2</option>
-                <!-- Agrega más opciones de barrio según tus necesidades -->
+                {% for barrio in barrios %}
+                    <option value="{{ barrio }}">{{ barrio }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="filter-item">
             <label for="tipo-accidente">Tipo de Accidente:</label>
             <select id="tipo-accidente" name="tipo-accidente">
                 <option value="todos">Todos</option>
-                <option value="tipo1">Tipo 1</option>
-                <option value="tipo2">Tipo 2</option>
-                <!-- Agrega más opciones de tipo de accidente según tus necesidades -->
+                {% for tipo_accidente in tipos_accidentes %}
+                    <option value="{{ tipo_accidente }}">{{ tipo_accidente }}</option>
+                {% endfor %}
             </select>
         </div>
         <input type="submit" value="Filtrar">
     </form>
+    <form action="/historico" method="get">
+        <input type="submit" value="Borrar filtros">
+    </form>
+
+    <p>Total accidentes: </p>
+    <p>Otro indicador</p>
+    <p>Otro indicador</p>
+    <p>Otro indicador</p>
 </div>
 
 <!-- Contenido en la parte derecha -->
 <div class="historico-content">
     <!-- Contenido de datos históricos -->
-    <h2>Filtros</h2>
+    <div class="selecciones-horizontal">
+        <!-- Mostrar el mapa aquí si la variable mostrar_mapa es True -->
+        {% if mostrar_mapa %}
+            <div id="map-container">
+                {{ mapa | safe }}  {# Renderiza el mapa generado como HTML seguro #}
+            </div>
+        {% endif %}
+        <p>Fecha de Inicio: {{ selected_fecha_inicio }}</p>
+        <p>Fecha de Fin: {{ selected_fecha_fin }}</p>
+        <p>Barrio: {{ selected_barrio }}</p>
+        <p>Tipo de Accidente: {{ selected_tipo_accidente }}</p>
+    </div>
 </div>
+
 
 {% endblock %}

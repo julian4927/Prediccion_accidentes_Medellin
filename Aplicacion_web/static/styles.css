@@ -91,3 +91,22 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+/* Estilo para la sección de selecciones */
+.selecciones-horizontal {
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.selecciones-horizontal h2 {
+    margin: 0;
+}
+
+.selecciones-horizontal p {
+    margin: 0;
+    margin-right: 10px; /* Agrega espacio entre los elementos */
+}
