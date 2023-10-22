@@ -12,7 +12,7 @@ def lista_valores_unicos(columna):
     return valores_distintos
 
 def crear_mapa_todo():
-  barrios_med = gpd.read_file('data/Barrio_Vereda.dbf')
+  barrios_med = gpd.read_file('data/Barrios de Medellín/Barrio_Vereda.dbf')
   mapa = folium.Map(width=1000, height=700, zoom_start=12, location=[6.27,-75.60])
   folium.TileLayer('openstreetmap').add_to(mapa)
   folium.GeoJson(data = barrios_med,
