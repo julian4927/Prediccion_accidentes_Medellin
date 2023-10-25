@@ -19,7 +19,7 @@
             <label for="barrio">Barrio:</label>
             <select id="barrio" name="barrio">
                 <option value="todos">Todos</option>
-                {% for barrio in barrios %}
+                {% for barrio in datos['barrios'] %}
                     <option value="{{ barrio }}">{{ barrio }}</option>
                 {% endfor %}
             </select>
@@ -28,16 +28,15 @@
             <label for="tipo-accidente">Tipo de Accidente:</label>
             <select id="tipo-accidente" name="tipo-accidente">
                 <option value="todos">Todos</option>
-                {% for tipo_accidente in tipos_accidentes %}
+                {% for tipo_accidente in datos['tipos_accidentes'] %}
                     <option value="{{ tipo_accidente }}">{{ tipo_accidente }}</option>
                 {% endfor %}
             </select>
         </div>
-        <input type="submit" value="Filtrar">
+        <input type="submit" name="submit_button" value="Filtrar">
+        <input type="submit" name="submit_button" value="Borrar filtros">
     </form>
-    <form action="/historico" method="get">
-        <input type="submit" value="Borrar filtros">
-    </form>
+    
 
     <p>Total accidentes: </p>
     <p>Otro indicador</p>
@@ -50,16 +49,17 @@
     <!-- Contenido de datos históricos -->
     <div class="selecciones-horizontal">
         <!-- Mostrar el mapa aquí si la variable mostrar_mapa es True -->
-        {% if mostrar_mapa %}
-            <div id="map-container">
-                {{ mapa | safe }}  {# Renderiza el mapa generado como HTML seguro #}
-            </div>
-        {% endif %}
-        <p>Fecha de Inicio: {{ selected_fecha_inicio }}</p>
-        <p>Fecha de Fin: {{ selected_fecha_fin }}</p>
-        <p>Barrio: {{ selected_barrio }}</p>
-        <p>Tipo de Accidente: {{ selected_tipo_accidente }}</p>
+        <p>Fecha de Inicio: {{ datos['fecha_inicio'] }}</p>
+        <p>Fecha de Fin: {{ datos['fecha_fin'] }}</p>
+        <p>Barrio: {{ datos['barrio'] }}</p>
+        <p>Tipo de Accidente: {{ datos['tipo_accidente'] }}</p>
     </div>
+    {% if datos['mostrar_mapa'] %}
+    <div id="map-container">
+        <!-- Agregar un iframe para mostrar el mapa -->
+        {% include 'mapa_sincolores.html' %}
+    </div>
+        {% endif %}
 </div>
 
 
