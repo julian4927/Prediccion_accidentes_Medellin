@@ -3,6 +3,12 @@ from Scripts.funciones import *
 
 barrios = lista_valores_unicos('BARRIO')
 tipos_accidentes = lista_valores_unicos('CLASE_ACCIDENTE')
+cluster_0 = lista_cluster(0)
+cluster_1 = lista_cluster(1)
+cluster_2 = lista_cluster(2)
+cluster_3 = lista_cluster(3)
+cluster_4 = lista_cluster(4)
+cluster_5 = lista_cluster(5)
 
 
 app = Flask(__name__)
@@ -49,7 +55,8 @@ def prediccion():
 
 @app.route("/agrupamiento")
 def agrupamiento():
-    return render_template('agrupamiento.html')
+    diccionario = {'cluster_0':cluster_0,'cluster_1':cluster_1,'cluster_2':cluster_2,'cluster_3':cluster_3,'cluster_4':cluster_4,'cluster_5':cluster_5}
+    return render_template('agrupamiento.html',datos = diccionario)
 
 @app.route("/enlaces")
 def enlaces():

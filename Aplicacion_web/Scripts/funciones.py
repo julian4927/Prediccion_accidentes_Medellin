@@ -32,4 +32,9 @@ def crear_mapa_todo():
   mapa.save('templates/mapa_sincolores.html')
   return mapa
 
+def lista_cluster(cluster):
+   datos = pd.read_csv("data/final_clusters.csv",  sep=",", decimal=".")
+   datos_cluster = datos[datos['cluster'] == cluster] 
+   lista_cluster = datos_cluster['barrio'].tolist()
+   return lista_cluster
 
