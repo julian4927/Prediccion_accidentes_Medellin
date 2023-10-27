@@ -38,10 +38,11 @@
     </form>
     
 
-    <p>Total accidentes: </p>
-    <p>Otro indicador</p>
-    <p>Otro indicador</p>
-    <p>Otro indicador</p>
+    <p>Total accidentes: {{datos['cantidad']}} </p>
+    <p>Total accidentes: {{datos['cantidad']}} </p>
+    <p>Total accidentes: {{datos['cantidad']}} </p>
+    <p>Total accidentes: {{datos['cantidad']}} </p>
+
 </div>
 
 <!-- Contenido en la parte derecha -->
@@ -57,7 +58,7 @@
     {% if datos['mostrar_mapa'] %}
     <div id="map-container">
         <!-- Agregar un iframe para mostrar el mapa -->
-        {% include 'mapa_sincolores.html' %}
+        {% include 'mapa_historico.html' %}
     </div>
         {% endif %}
 </div>

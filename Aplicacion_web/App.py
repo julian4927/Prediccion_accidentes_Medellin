@@ -23,27 +23,36 @@ def historico():
     fecha_fin = ""
     barrio = ""
     tipo_accidente = ""
+    cantidad = 0
     mostrar_mapa = False
     diccionario = {'barrios':barrios,'tipos_accidentes':tipos_accidentes}
     if request.method == 'POST':
         if 'Filtrar' in request.form['submit_button']:
             fecha_inicio = request.form.get("fecha-inicio")
+            fecha_inicio = datetime.strptime(fecha_inicio, "%Y-%m-%d").strftime("%d/%m/%Y")
+            inicio = fecha_inicio.replace('-','/')
             fecha_fin = request.form.get("fecha-fin")
+            fecha_fin = datetime.strptime(fecha_fin, "%Y-%m-%d").strftime("%d/%m/%Y")
+            fin = fecha_fin.replace('-','/')
             barrio = request.form.get("barrio")
             tipo_accidente = request.form.get("tipo-accidente")
-            mapa = crear_mapa_todo()
+            lista,cantidad = crear_lista(f'{inicio} 00:00:00',f'{fin} 23:59:59',barrio,tipo_accidente)
+            mapa = crear_mapa_historico(lista,barrio)
             mostrar_mapa = True
+
         elif 'Borrar filtros' in request.form['submit_button']:
             fecha_inicio = ""
             fecha_fin = ""
             barrio = ""
             tipo_accidente = ""
             mostrar_mapa = False
+            cantidad = 0
     diccionario['fecha_inicio'] = fecha_inicio
     diccionario['fecha_fin'] = fecha_fin
     diccionario['barrio'] = barrio
     diccionario['tipo_accidente'] = tipo_accidente
     diccionario['mostrar_mapa'] = mostrar_mapa
+    diccionario['cantidad'] = cantidad
 
     return render_template('historico.html',datos = diccionario)
 
@@ -69,14 +78,9 @@ def agrupamiento():
     else:
         # Define un valor predeterminado si no se ha enviado el formulario
         name = "Todos"
-
     diccionario = {'cluster_0':cluster_0,'cluster_1':cluster_1,'cluster_2':cluster_2,'cluster_3':cluster_3,'cluster_4':cluster_4,'cluster_5':cluster_5}
     diccionario['name'] = name
     
     return render_template('agrupamiento.html',datos = diccionario)
-
-@app.route("/enlaces")
-def enlaces():
-    return render_template('enlaces.html')
 
 
