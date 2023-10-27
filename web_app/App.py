@@ -45,6 +45,7 @@ def historico():
             fecha_fin = ""
             barrio = ""
             tipo_accidente = ""
+            # mapa = crear_mapa_(lista,barrio)
             mostrar_mapa = False
             cantidad = 0
     diccionario['fecha_inicio'] = fecha_inicio

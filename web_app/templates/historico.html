@@ -61,11 +61,16 @@
         <p>Tipo de Accidente: {{ datos['tipo_accidente'] }}</p>
     </div>
     {% if datos['mostrar_mapa'] %}
-    <div id="map-container">
-        <!-- Agregar un iframe para mostrar el mapa -->
-        {% include 'mapa_historico.html' %}
-    </div>
-        {% endif %}
+        <div id="map-container">
+            <!-- Agregar un iframe para mostrar el mapa -->
+            {% include 'mapa_historico.html' %}
+        </div>
+    {% else %}
+        <div id="map-container2">
+            <!-- Agregar un iframe para mostrar el mapa -->
+            {% include 'mapa_sincolores.html' %}
+        </div>
+    {% endif %}
 </div>
 
 

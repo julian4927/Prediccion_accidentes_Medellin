@@ -281,3 +281,74 @@ p.resaltado {
     border: 1px solid #ccc; /* Borde con color de borde */
     border-radius: 5px; /* Borde redondeado */
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Estilos del encabezado */
+h1 {
+    color: #007bff; /* Color azul */
+}
+
+/* Estilos de párrafos y listas */
+p {
+    line-height: 1.5;
+}
+
+ul.benefits-list {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+ul.benefits-list li {
+    margin: 5px 0;
+}
+
+.highlight {
+    color: #ff6600; /* Color naranja */
+}
+
+/* Estilos de enlaces */
+a {
+    color: #007bff; /* Color azul */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos de la sección de contacto */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
