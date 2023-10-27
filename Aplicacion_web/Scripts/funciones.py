@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import geopandas as gpd
 from IPython.display import IFrame
+from datetime import datetime, date, timedelta
+import holidays_co
 
 def lista_valores_unicos(columna):
     datos = pd.read_csv("data/data_limpia.csv",  sep=",", decimal=".")
@@ -38,3 +40,12 @@ def lista_cluster(cluster):
    lista_cluster = datos_cluster['barrio'].tolist()
    return lista_cluster
 
+def prediccion_modelo(fecha_inicial, fecha_final):
+   df = pd.read_csv("data/validacion.csv",  sep=",", decimal=".")
+   df['fecha'] = pd.to_datetime(df['fecha'])
+   inicio = datetime.strptime(fecha_inicial, '%Y/%m/%d')
+   fin = datetime.strptime(fecha_final, '%Y/%m/%d')
+   mask = (df['fecha'] >= inicio) & (df['fecha'] <= fin)
+   accidentes = df.loc[mask]['prediccion'].sum()
+   accidentes_entero = int(accidentes)
+   return    accidentes_entero

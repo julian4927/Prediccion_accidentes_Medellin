@@ -49,9 +49,17 @@ def historico():
 
 
 
-@app.route("/prediccion")
+@app.route("/prediccion",methods=['GET', 'POST'])
 def prediccion():
-    return render_template('prediccion.html')
+    predict = '0'
+    if request.method == 'POST':
+        fecha_inicial = request.form.get("fecha_inicial")
+        fecha_final = request.form.get("fecha_final")
+        inicio = fecha_inicial.replace('-','/')
+        final = fecha_final.replace('-','/')
+        predict = prediccion_modelo(inicio, final)
+
+    return render_template('prediccion.html',predict = predict)
 
 @app.route("/agrupamiento", methods=['GET', 'POST'])
 def agrupamiento():
