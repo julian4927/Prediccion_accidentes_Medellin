@@ -271,3 +271,13 @@ a {
 a:hover {
     text-decoration: underline;
 }
+/* Estilo para el párrafo resaltado */
+p.resaltado {
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: white; /* Color de texto rojo */
+    background-color: #3498db; /* Color de fondo amarillo (puedes cambiarlo) */
+    padding: 10px; /* Espaciado interior */
+    border: 1px solid #ccc; /* Borde con color de borde */
+    border-radius: 5px; /* Borde redondeado */
+}

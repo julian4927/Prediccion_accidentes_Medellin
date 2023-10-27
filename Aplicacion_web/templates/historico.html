@@ -4,6 +4,11 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    <p class="intro-paragraph">
+        Esta sección esta diseñada para visualizar historicamente la cantidad de accidentes que ocurrieron en determinadas fechas, para ello debes ingresar una fecha de inicio y una fecha de fin, que indica el rango de tiempo que deseas visualizar, a partir del 2014 hasta 2020. Adicional a ello puedes seleccionar el barrio y el tipo de accidente que requieres o de su preferencia. Inmediatamente podrá visualizar en el mapa información sobre el accidente y en la parte inferior de la pantalla está el total de accidentes segun la informacion suministrada anteriormente.
+    </p>
+</div>
 <div class="historico-filter-vertical">
     <h2>Filtros</h2>
     <form action="#" method="post">
@@ -38,10 +43,10 @@
     </form>
     
 
-    <p>Total accidentes: {{datos['cantidad']}} </p>
-    <p>Total accidentes: {{datos['cantidad']}} </p>
-    <p>Total accidentes: {{datos['cantidad']}} </p>
-    <p>Total accidentes: {{datos['cantidad']}} </p>
+    <p class="resaltado">Total accidentes: {{datos['cantidad']}}</p>
+    <br>
+    <br>
+    <br>
 
 </div>
 
