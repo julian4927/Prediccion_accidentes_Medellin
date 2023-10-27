@@ -23,7 +23,7 @@
         <div class="filter-item">
             <label for="barrio">Barrio:</label>
             <select id="barrio" name="barrio">
-                <option value="todos">Todos</option>
+                <option value="None">None</option>
                 {% for barrio in datos['barrios'] %}
                     <option value="{{ barrio }}">{{ barrio }}</option>
                 {% endfor %}
@@ -32,7 +32,7 @@
         <div class="filter-item">
             <label for="tipo-accidente">Tipo de Accidente:</label>
             <select id="tipo-accidente" name="tipo-accidente">
-                <option value="todos">Todos</option>
+                <option value="None">None</option>
                 {% for tipo_accidente in datos['tipos_accidentes'] %}
                     <option value="{{ tipo_accidente }}">{{ tipo_accidente }}</option>
                 {% endfor %}

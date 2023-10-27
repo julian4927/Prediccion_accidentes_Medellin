@@ -18,7 +18,7 @@
                     <option value="Grupo 4" {% if datos['name'] == 'Grupo 4' %}selected{% endif %}>Grupo 4</option>
                     <option value="Grupo 5" {% if datos['name'] == 'Grupo 5' %}selected{% endif %}>Grupo 5</option>
                 </select>
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Mostrar">
             </form>
             {% if datos['name'] == 'Todos' %}
                 {% include 'mapa_todos.html' %}
