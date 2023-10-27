@@ -1,8 +1,74 @@
 {% extends 'base.html' %}
+
 {% block title %}
     Agrupamiento
 {% endblock %}
 
 {% block content %}
-    {% include 'mapa_sincolores (11).html' %}
+    <div class="agrupamiento-container">
+        <div class="agrupamiento-mapa">
+            <!-- Contenido del mapa -->
+            <form method="POST" action="#">
+                <select id="opciones" name="seleccion">
+                    <option value="Todos" {% if datos['name'] == 'Todos' %} selected {% endif %}>Todos</option>
+                    <option value="Grupo 0" {% if datos['name'] == 'Grupo 0' %} selected {% endif %}>Grupo 0</option>
+                    <option value="Grupo 1" {% if datos['name'] == 'Grupo 1' %}selected{% endif %}>Grupo 1</option>
+                    <option value="Grupo 2" {% if datos['name'] == 'Grupo 2' %}selected{% endif %}>Grupo 2</option>
+                    <option value="Grupo 3" {% if datos['name'] == 'Grupo 3' %}selected{% endif %}>Grupo 3</option>
+                    <option value="Grupo 4" {% if datos['name'] == 'Grupo 4' %}selected{% endif %}>Grupo 4</option>
+                    <option value="Grupo 5" {% if datos['name'] == 'Grupo 5' %}selected{% endif %}>Grupo 5</option>
+                </select>
+                <input type="submit" value="Enviar">
+            </form>
+            {% if datos['name'] == 'Todos' %}
+                {% include 'mapa_todos.html' %}
+            {% endif %}
+            {% if datos['name'] == 'Grupo 0' %}
+                {% include 'mapa_grupo0.html' %}
+            {% endif %}
+            {% if datos['name'] == 'Grupo 1' %}
+                {% include 'mapa_grupo1.html' %}
+            {% endif %}
+            {% if datos['name'] == 'Grupo 2' %}
+                {% include 'mapa_grupo2.html' %}
+            {% endif %}
+            {% if datos['name'] == 'Grupo 3' %}
+                {% include 'mapa_grupo3.html' %}
+            {% endif %}
+            {% if datos['name'] == 'Grupo 4' %}
+                {% include 'mapa_grupo4.html' %}
+            {% endif %}
+            {% if datos['name'] == 'Grupo 5' %}
+                {% include 'mapa_grupo5.html' %}
+            {% endif %}
+
+            <h2>Buenas buenas</h2>
+        </div>
+        <div class="agrupamiento-info">
+            <!-- Contenido de agrupamiento e instrucciones -->
+            <div class="agrupamiento-info">
+                <h2>Agrupamiento</h2>
+                <p>En esta sección encontrarás los barrios de Medellin, los cuales se encuentran agrupados con determinadas características:</p>
+                <ul>
+                    <li>Cantidad de choques</li>
+                    <li>Cantidad de muertes</li>
+                    <li>Tipo de vía con más cantidad de accidentes</li>
+                    <li>Tipo de vía con menos cantidad de accidentes</li>
+                </ul>
+                <p>Lo anterior con el fin de brindar estrategias para cada grupo de barrios, las cuales permitan mejorar la movilidad cuando ocurren accidentes, brindar maneras de disminuir estos accidentes e información para los ciudadanos de Medellín.</p>
+                <p>Igualmente puedes encontrar las características específicas del grupo que deseas como se muestra a continuación.</p>
+                <h3>Instrucciones:</h3>
+                <ul>
+                    <li>El mapa por defecto muestra la clasificación de todos los barrios de medellin representados por colores, son 6 grupos y de gris van los barrios de los cuales no se tienen registros.</li>
+                    <li>Si desea revisar un grupo en particular en el menu desplegable puede seleccionar el grupo que desee y el mapa se actualizará mostrando solo los barrios correspondientes a ese grupo.</li> 
+                    <li>Igualmente al seleccionar un barrio encontrará una breve descripción con las características del grupo al que pertenece el barrio</li>
+                    <li>Adicionalmente puede validar el número del grupo al que pertenece y en la sección de estrategias podrá ver la utilidad del agrupamiento de los barrios de Medellín con respecto a la accidentalidad y los planes de acción a aplicar.</li>
+                </ul>
+        </div>
+        
+        <div class="agrupamiento-estrategias">
+            <!-- Contenido de estrategias -->
+            
+        </div>
+    </div>
 {% endblock %}

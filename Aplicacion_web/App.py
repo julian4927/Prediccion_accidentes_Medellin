@@ -53,9 +53,18 @@ def historico():
 def prediccion():
     return render_template('prediccion.html')
 
-@app.route("/agrupamiento")
+@app.route("/agrupamiento", methods=['GET', 'POST'])
 def agrupamiento():
+    if request.method == 'POST':
+        name = request.form.get('seleccion')
+        print(name)
+    else:
+        # Define un valor predeterminado si no se ha enviado el formulario
+        name = "Todos"
+
     diccionario = {'cluster_0':cluster_0,'cluster_1':cluster_1,'cluster_2':cluster_2,'cluster_3':cluster_3,'cluster_4':cluster_4,'cluster_5':cluster_5}
+    diccionario['name'] = name
+    
     return render_template('agrupamiento.html',datos = diccionario)
 
 @app.route("/enlaces")

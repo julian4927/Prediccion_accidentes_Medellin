@@ -46,10 +46,11 @@ body {
     background-color: #3498db;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 10pt;
 }
 
 p {
@@ -109,4 +110,93 @@ select {
 .selecciones-horizontal p {
     margin: 0;
     margin-right: 10px; /* Agrega espacio entre los elementos */
+}
+/* Estilo para el párrafo introductorio */
+.intro-paragraph {
+    font-size: 16px; /* Tamaño de fuente */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin-top: 20px; /* Margen superior */
+}
+
+/* Estilo para la lista de beneficios */
+.benefits-list {
+    list-style-type: disc; /* Puntos como marcadores */
+    padding-left: 20px; /* Espaciado a la izquierda de la lista */
+}
+
+.benefits-list li {
+    margin: 5px 0; /* Margen entre elementos de la lista */
+}
+
+/* Estilo para el primer ítem de la lista (resaltado) */
+.benefits-list .highlight {
+    font-weight: bold; /* Texto en negrita para resaltar el primer ítem */
+}
+
+
+/* Estilo para el párrafo de enlaces */
+.link-paragraph {
+    font-size: 16px; /* Tamaño de fuente */
+    margin-top: 20px; /* Margen superior */
+}
+
+.link-paragraph a {
+    text-decoration: none; /* Sin subrayado en enlaces */
+    color: #3498db; /* Color de enlace */
+}
+
+.link-paragraph a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse por encima */
+}
+
+/* Estilo para la información de contacto */
+.contact-info {
+    display: flex; /* Diseño de caja flexible para los elementos de contacto */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan en múltiples líneas si es necesario */
+    margin-top: 20px; /* Margen superior */
+}
+
+.contact-item {
+    flex: 1; /* Cada elemento de contacto se expandirá para ocupar igual espacio */
+    margin-right: 10px; /* Margen derecho entre elementos de contacto */
+    margin-bottom: 20px; /* Margen inferior entre elementos de contacto */
+}
+
+.contact-name {
+    font-weight: bold; /* Texto en negrita para los nombres de contacto */
+}
+
+.contact-details {
+    font-size: 14px; /* Tamaño de fuente para los detalles de contacto */
+}
+/* Estilos para el contenedor principal */
+.agrupamiento-container {
+    display: flex;
+}
+
+/* Estilos para la sección de información a la izquierda */
+.agrupamiento-info {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Estilos para el menú desplegable en el centro */
+.agrupamiento-menu {
+    flex: 1;
+    padding: 20px;
+    /* Agrega estilos del menú desplegable aquí */
+}
+
+/* Estilos para la sección de estrategias a continuación del menú */
+.agrupamiento-estrategias {
+    flex: 1;
+    padding: 20px;
+    /* Agrega estilos de la sección de estrategias aquí */
+}
+
+/* Estilos para la sección del mapa a la derecha */
+.agrupamiento-mapa {
+    flex: 2;
+    padding: 20px;
+    /* Agrega estilos del mapa aquí */
 }
