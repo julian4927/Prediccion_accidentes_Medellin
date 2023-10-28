@@ -1,4 +1,4 @@
-from flask import Flask , render_template, request
+from flask import Flask , render_template, request, redirect, url_for
 from Scripts.funciones import *
 
 barrios = lista_valores_unicos('BARRIO')
@@ -84,4 +84,6 @@ def agrupamiento():
     
     return render_template('agrupamiento.html',datos = diccionario)
 
-
+@app.errorhandler(Exception)
+def handle_error(e):
+    return redirect(url_for('inicio'))
