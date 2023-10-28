@@ -233,7 +233,7 @@ z = np.abs(stats.zscore(conteos["y"]))
 conteos["Z_CT"]=z
 conteos[conteos["Z_CT"]>1.5]
 
-"""Se sacan los que aparecen por encima de 2"""
+"""Se sacan los que aparecen por encima de 1.5"""
 
 conteos=conteos[conteos["Z_CT"]<=1.5]
 
@@ -244,7 +244,7 @@ conteos['dia_especial'] = conteos['dia_especial'].astype('str')
 conteos['semana_del_mes'] = conteos['semana_del_mes'].astype('str')
 conteos['quincena'] = conteos['quincena'].astype('str')
 
-"""Se selecciona el conjunto de entrenamiento entre los años 2014 y 2018, y el conjunto de prueba solo con los datos de 2019, debido a que si se evalua con los datos de 2020 no se obtiene una prediccion correcta, ya que los datos presentes en el año 2020 presentan una particularidad y es que fue el año donde inicio la pandemia y habian mayores restricciones para las personas salir. Por tal motivo, incluir el año 2020 podria generar una incorrecta predicción."""
+"""Se selecciona el conjunto de entrenamiento entre los años 2014 y 2019, y el conjunto de prueba solo con los datos de 2019, debido a que si se evalua con los datos de 2020 no se obtiene una prediccion correcta, ya que los datos presentes en el año 2020 presentan una particularidad y es que fue el año donde inicio la pandemia y habian mayores restricciones para las personas salir. Por tal motivo, incluir el año 2020 podria generar una incorrecta predicción."""
 
 train = conteos[conteos["ano"] <=2018]
 
@@ -269,7 +269,7 @@ model = smf.glm(formula = formula, data=train, family=sm.families.Poisson()).fit
 
 model.summary()
 
-""" ## El criterio de éxito del modelo predictivo será el error cuadrático medio de la predicción, los cuales nos muestran a continuación que el modelo esta bien entrenado para realizar la predicción para accidentes tipo Choque en los periodos de tiempo 2021 y 2022. Recuerda que no se realizó predicción para el año 2020 debido a que fue un año particularmente atipico y el historico de 2014 al 2018 se comportan muy diferentes a este."""
+""" ## El criterio de éxito del modelo predictivo será el error cuadrático medio de la predicción, los cuales nos muestran a continuación que el modelo esta bien entrenado para realizar la predicción para accidentes tipo Choque en los periodos de tiempo 2021 y 2022. Recuerda que no se realizó predicción para el año 2020 debido a que fue un año particularmente atipico y el historico de 2014 al 2019 se comportan muy diferentes a este."""
 
 predict_tr = model.predict(train)
 
@@ -361,7 +361,8 @@ fig.show()
 import plotly.express as px
 
 fig = px.line(monthly_data, x='Mes', y="prediccion",
-              title="Predicción mensual de cantidad de accidentes tipo Choque en Medellín 2021 - 2022")
+              title="Predicción mensual de cantidad de accidentes tipo Choque en Medellín 2021 - 2022",
+              line_shape='linear', color_discrete_sequence=['purple'])
 fig.show()
 #?px.line
 
@@ -383,7 +384,7 @@ def prediccion(fecha_inicial, fecha_final, df):
 
 type(datetime.strptime('2020/01/01', '%Y/%m/%d'))
 
-validacion
+validacion.to_csv('validacion.csv')
 
 """##Predicción de choques para el rango de tiempo establecido:"""
 
@@ -681,7 +682,7 @@ result
 - Número de muertos: 1
 - Número de choques: 133
 - El tipo de via que presentó mayor cantidad de accidentes es en Tramo de via
-- El segundo tipo de via que presentó mayor cantidad de accidentes es en intersecciones y en intersecciones
+- El segundo tipo de via que presentó mayor cantidad de accidentes es en intersecciones y en tramo de via
 - Los tipos de via con menos accidentes son ciclo ruta, pasos elevado, inferior y a nivel, puentes, ponton y via peatonal.
 """
 
@@ -761,3 +762,15 @@ result_cluster_4
 
 result_cluster_5 = result[result['cluster'] == 5]
 result_cluster_5
+
+"""##**Estrategias**
+A continuación según vemos los barrios que pertenecen a cada grupo, para ver las caracteristicas de este y les asignamos estrategias, las cuales se podrian implementar para mejorar la situación de accidentalidad en el grupo.
+"""
+
+final=juntos2
+final['cluster']=clustering.labels_
+
+finalfinal=final
+cluster=5
+barriosEnCluster=finalfinal[final['cluster']==cluster]['barrio']
+barriosEnCluster
